@@ -12,9 +12,21 @@ Input: [1, 2, 3, 4, 5]
 Output: False
 """
 
+
 def has_duplicates(product_ids):
-    # Your implementation here
-    pass
+# I chose a set because sets are useful for checking membership quickly
+# and avoiding duplicates. The program checks whether each product ID is
+# already in the set and adds it if it has not been seen before.
+# Sets are efficient for membership checking and quickly adding values.
+
+    seen_ids = set()
+
+    for product_id in product_ids:
+        if product_id in seen_ids:
+            return True
+        seen_ids.add(product_id)
+
+    return False
 
 
 """
@@ -32,14 +44,20 @@ task_queue.remove_oldest_task() → "Email follow-up"
 
 class TaskQueue:
     def __init__(self):
-        # Your initialization here
-        pass
+    #  I chose a queue because tasks need to stay in the order they were added,
+    # following First In, First Out (FIFO). Tasks are added to the end and removed
+    # from the front, which makes processing ordered, predictable, and efficient. 
+     
+       self.tasks = []
 
     def add_task(self, task):
-        pass
+        self.tasks.append(task)
 
     def remove_oldest_task(self):
-        pass
+        if self.tasks:
+            return self.tasks.pop(0)
+        return None
+
 
 
 """
@@ -57,10 +75,33 @@ tracker.get_unique_count() → 2
 
 class UniqueTracker:
     def __init__(self):
-        pass
+    # I chose a set because sets store unique values and do not allow duplicates.
+    # Each value is added to the set, and the unique count comes from the values
+    # currently stored. Sets are efficient for quickly adding and checking values.
+
+        self.values = set()
 
     def add(self, value):
-        pass
+        self.values.add(value)
+
 
     def get_unique_count(self):
-        pass
+        return len(self.values)
+    
+
+# Test the practice problems using the examples from the assignment
+
+
+print(has_duplicates([10, 20, 30, 20, 40]))
+print(has_duplicates([1, 2, 3, 4, 5]))
+
+task_queue = TaskQueue()
+task_queue.add_task("Email follow-up")
+task_queue.add_task("Code review")
+print(task_queue.remove_oldest_task())
+
+tracker = UniqueTracker()
+tracker.add(10)
+tracker.add(20)
+tracker.add(10)
+print(tracker.get_unique_count())
