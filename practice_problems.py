@@ -43,11 +43,11 @@ task_queue.remove_oldest_task() → "Email follow-up"
 
 class TaskQueue:
     def __init__(self):
-    #  I chose a queue because tasks need to stay in the order they were added,
-    # following First In, First Out (FIFO). Tasks are added to the end and removed
-    # from the front, which makes processing ordered, predictable, and efficient. 
-     
-       self.tasks = []
+    # I chose a queue because tasks need to stay in the order they were added, following First In, First Out (FIFO).
+    # Adding a task to the end of the list with append() is O(1) on average.
+    # Removing the oldest task with pop(0) is O(n) because the remaining tasks have to shift.
+        
+         self.tasks = []
 
     def add_task(self, task):
         self.tasks.append(task)
