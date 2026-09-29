@@ -14,11 +14,10 @@ Output: False
 
 
 def has_duplicates(product_ids):
-# I chose a set because sets are useful for checking membership quickly
-# and avoiding duplicates. The program checks whether each product ID is
-# already in the set and adds it if it has not been seen before.
-# Sets are efficient for membership checking and quickly adding values.
-
+# I chose a set because it stores unique values and provides efficient membership checking.
+# As I loop through the product IDs, checking and adding values to the set are O(1) on average.
+# Each product ID is checked at most once, so the overall time complexity is O(n).
+    
     seen_ids = set()
 
     for product_id in product_ids:
