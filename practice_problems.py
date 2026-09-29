@@ -74,9 +74,9 @@ tracker.get_unique_count() → 2
 
 class UniqueTracker:
     def __init__(self):
-    # I chose a set because sets store unique values and do not allow duplicates.
-    # Each value is added to the set, and the unique count comes from the values
-    # currently stored. Sets are efficient for quickly adding and checking values.
+   # I chose a set because it stores unique values and does not allow duplicates.
+   # Adding a value to the set is O(1) on average, and getting the count with len() is O(1).
+   # This makes it easy to keep track of the number of unique values as new values are added.
 
         self.values = set()
 
@@ -87,6 +87,7 @@ class UniqueTracker:
     def get_unique_count(self):
         return len(self.values)
     
+
 
 # Test the practice problems using the examples from the assignment
 
