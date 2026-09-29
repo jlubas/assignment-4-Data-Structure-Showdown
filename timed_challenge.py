@@ -13,7 +13,18 @@ def count_unique_words(text):
     words = text.split()
     unique_words = set(words)
     return len(unique_words)
-print(count_unique_words(text))
+    
+# Test the example
+print(count_unique_words(text)) # Expected: 5
+
+# Test an empty string
+print(count_unique_words(""))  # Expected: 0
+
+# Test repeated words
+print(count_unique_words("cat cat cat"))  # Expected: 1
+
+# Test all unique words
+print(count_unique_words("red blue green"))  # Expected: 3
 
 # What structure I chose and why?
 
